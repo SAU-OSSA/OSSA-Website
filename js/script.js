@@ -27,8 +27,12 @@ function change(a) {
 var onFrame = false
 window.addEventListener('scroll', (e) => {
     console.log(document.documentElement.scrollTop, document.body.clientHeight - document.documentElement.clientHeight)
-    if (!onFrame && document.body.clientHeight - document.documentElement.clientHeight - document.documentElement.scrollTop < document.documentElement.clientHeight) {
-        frame();
+    if (document.body.clientHeight - document.documentElement.clientHeight - document.documentElement.scrollTop < document.documentElement.clientHeight) {
+        if (!onFrame) {
+            frame();
+        }
+    } else {
+        stop();
     }
     var nav_op = document.documentElement.scrollTop / document.documentElement.clientHeight * 3
     nav_op = nav_op > 0.8 ? 0.8 : nav_op
@@ -367,6 +371,9 @@ function spawnParticle(vars) {
     pt.color = pt.radius / 1000 + vars.frameNo / 250;
     vars.points.push(pt);
 }
+onPlay = true
+
+var requestId
 
 function frame(vars) {
     onFrame = true
@@ -405,10 +412,15 @@ function frame(vars) {
     }
 
     vars.frameNo++;
-    requestAnimationFrame(function () {
+    requestId = requestAnimationFrame(function () {
         frame(vars);
     });
 
     process(vars);
     draw(vars);
+}
+
+function stop() {
+    cancelAnimationFrame(requestId)
+    onFrame = false
 }
