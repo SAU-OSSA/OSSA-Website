@@ -99,12 +99,12 @@ body {
   background-color: #000000a0;
   overflow: visible;
   transform-origin: 50% 0;
-  transform: rotate3d(1, 0, 0, -90deg);
-  transition: 0.5s ease-in;
+  transform: scaleY(0);
 }
 
 #hamburger-toggler:checked~.mobile-nav-list {
-  transform: rotate3d(1, 0, 0, 0deg);
+  transform: scaleY(1);
+  transition: 0.5s ease-in;
 }
 
 #hamburger-toggler:checked~.mobile-nav-list li {
