@@ -66,6 +66,137 @@ body {
   font-family: "Barlow", sans-serif;
 }
 
+.mobile-nav {
+  display: none;
+}
+
+.hamburger-container {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 1000px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: contents;
+  }
+}
+
+.mobile-nav-list {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 50px;
+  left: 0px;
+  z-index: 10000000;
+  background-color: #000000a0;
+  overflow: visible;
+  transform-origin: 50% 0;
+  transform: rotate3d(1, 0, 0, -90deg);
+  transition: 0.5s ease-in;
+}
+
+#hamburger-toggler:checked~.mobile-nav-list {
+  transform: rotate3d(1, 0, 0, 0deg);
+}
+
+#hamburger-toggler:checked~.mobile-nav-list li {
+  opacity: 1;
+}
+
+.mobile-nav-list li {
+  margin-right: 10px;
+  margin-left: 10px;
+  height: 50px;
+  display: flex;
+  flex-wrap: nowrap;
+  /*实现垂直居中*/
+  align-items: center;
+  /*实现水平居中*/
+  justify-content: center;
+  text-align: justify;
+  flex-wrap: nowrap;
+  opacity: 0;
+  transition-duration: 0.5s;
+}
+
+.mobile-nav-list a {
+  font-size: 20px;
+}
+
+.mobile-nav-list li:hover {
+  background-color: #ffffff50;
+}
+
+span.hamburger-button {
+  display: inline-block;
+  width: 32px;
+  font-size: 0;
+  /* fix vertical space caused by text size */
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+span.hamburger-button span,
+span.hamburger-button span::before,
+span.hamburger-button span::after {
+  display: inline-block;
+  height: 3px;
+  background-color: #eee;
+  width: 100%;
+  margin: 4px 0;
+  border-radius: 2px;
+  user-select: none;
+  -webkit-user-select: none;
+  position: relative;
+  top: 0;
+}
+
+#hamburger-toggler {
+  display: none;
+}
+
+#hamburger-toggler:checked+label .hamburger-button span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 11px;
+}
+
+#hamburger-toggler:checked+label .hamburger-button span:nth-child(2) {
+  opacity: 0;
+}
+
+#hamburger-toggler:checked+label .hamburger-button span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: -11px;
+}
+
+.hamburger-button span:nth-child(1),
+.hamburger-button span:nth-child(3) {
+  transition: transform .3s ease-in-out, top .3s ease-in-out .3s;
+}
+
+.hamburger-button span:nth-child(2) {
+  transition: all .3s ease-in-out .3s;
+}
+
+#hamburger-toggler:checked+label .hamburger-button span:nth-child(1),
+#hamburger-toggler:checked+label .hamburger-button span:nth-child(3) {
+  transition: top .3s ease-in-out, transform .3s ease-in-out .3s;
+}
+
+#hamburger-toggler:checked+label .hamburger-button span:nth-child(2) {
+  transition: all .3s ease-in-out;
+}
+
+
 .logo {
   height: 50px;
   width: 100px;
@@ -86,7 +217,7 @@ body {
   height: inherit;
 }
 
-#scroll-back{
+#scroll-back {
   height: 0px;
   width: 100vw;
   z-index: 10000000;
@@ -111,7 +242,7 @@ nav {
   height: 50px;
   position: fixed;
   width: 100vw;
-  min-width: 1000px;
+  /* min-width: 1000px; */
   font-size: 20px;
   /* background-color: rgba(40, 42, 44, 0.6); */
   background-image: linear-gradient(180deg, #000000c0, transparent);
@@ -126,12 +257,12 @@ nav {
   align-items: center;
 }
 
-nav ul {
+.desktop-nav ul {
   white-space: nowrap;
 }
 
-nav li,
-nav a {
+.desktop-nav li,
+.desktop-nav a {
   float: left;
   margin-right: 10px;
   margin-left: 10px;
@@ -146,7 +277,7 @@ nav a {
   flex-wrap: nowrap;
 }
 
-nav li:hover {
+.desktop-nav li:hover {
   background-color: #ffffff20;
 }
 
