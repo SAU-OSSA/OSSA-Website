@@ -13,7 +13,6 @@ $start.onclick = () => {
 }
 
 if (document.documentElement.scrollTop > document.documentElement.clientHeight * 0.2) {
-    console.log(30)
     document.getElementById('ossa').style.height = "30vh"
 } else {
     document.getElementById('ossa').style.height = "100vh"

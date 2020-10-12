@@ -1,0 +1,52 @@
+body{
+    overflow-x: hidden;
+}
+header {
+    height: 30vh;
+    background-color: burlywood;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+}
+.work-item{
+    /* display: inline-block; */
+    width: 400px;
+    height: 200px;
+    background-color: #eee;
+    margin: 20px;
+    box-sizing: border-box;
+    float: left;
+    padding: 20px;
+    overflow: hidden;
+}
+.work-item img{
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+}
+.work-des{
+    font-size: small;
+}
+.work-item .work-name{
+    height: 70px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: left;
+    vertical-align: top;
+    flex-direction: column;
+    font-size: x-large;
+}
+.works-con{
+    padding: 2vw 10vw;
+    box-sizing: border-box;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    
+    flex-direction: row;
+}

@@ -196,6 +196,27 @@ span.hamburger-button span::after {
   transition: all .3s ease-in-out;
 }
 
+.first-sec{
+  min-height: 70vh;
+}
+
+.ossa-func-con {
+  min-height: 20vh;
+  width: 100%;
+  /* background-color: #00C1B3; */
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.ossa-func-img {
+  border: #222 solid;
+  height: 100px;
+  width: 100px;
+  margin: 10px;
+}
 
 .logo {
   height: 50px;
@@ -226,11 +247,27 @@ span.hamburger-button span::after {
 
 .passage {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   flex-direction: column;
   align-items: center;
   padding: 2vw 15vw;
   background-color: #eee;
+}
+
+.i-btn{
+  background-color: #ff6600;
+  padding: 15px 30px;
+  margin: 20px;
+  font-size: 20px;
+  color: #eee;
+  border-radius: 50px;
+}
+
+.qa-passage{
+  background-image: url("../img/ossa404.jpg");
+  background-repeat: repeat;
+  height: 20vh;
+  background-color: #00C1B3;
 }
 
 footer {
