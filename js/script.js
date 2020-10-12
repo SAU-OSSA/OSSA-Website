@@ -22,7 +22,18 @@ function change(a) {
     document.getElementsByClassName('p404')[0].innerHTML = a
     document.getElementsByClassName('p404')[1].innerHTML = a
 }
+var pre_backgroundImage
+document.getElementById('hamburger-toggler').onchange = (ev) =>{
 
+    if (document.getElementById('hamburger-toggler').checked) {
+        pre_backgroundImage = document.getElementsByTagName("nav")[0].style.backgroundImage;
+        document.getElementsByTagName("nav")[0].style.backgroundImage = "linear-gradient(180deg, #000000ff, rgba(0,0,0, 1))";
+    } else {
+        setTimeout(() => {
+            document.getElementsByTagName("nav")[0].style.backgroundImage = pre_backgroundImage
+        }, 1000);
+    }
+}
 var onFrame = false
 window.addEventListener('scroll', (e) => {
     console.log(document.documentElement.scrollTop, document.body.clientHeight - document.documentElement.clientHeight)
